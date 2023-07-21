@@ -3,29 +3,38 @@ import 'package:drawer_counter_test/data/repos/app_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final appDataProvider = StateNotifierProvider<AppDataNotifier, AppState>((ref) {
-  return AppDataNotifier(AppRepo());
+  return AppDataNotifier(appRepo: AppRepo());
 });
 
 class AppDataNotifier extends StateNotifier<AppState> {
-  AppDataNotifier(this.appRepo) : super(const AppState()) {
+  AppDataNotifier({
+    required AppRepo appRepo,
+  })  : _appRepo = appRepo,
+        super(const AppState.initial()) {
     getData();
   }
-  AppRepo appRepo;
+  final AppRepo _appRepo;
+
+  late int count;
 
   Future<void> getData() async {
-    state = state.copyWith(isGetLoading: true);
-    await appRepo.fetchData().then((value) {
-      state = state.copyWith(
-        appModel: value,
-        isGetLoading: false,
-      );
-    });
+    state = const AppState.loading();
+    try {
+      final app = await _appRepo.fetchData();
+      count = app.count;
+      state = AppState.loaded(app);
+    } catch (_) {
+      state = const AppState.error('Error!');
+    }
   }
 
-  Future<void> increaseCount(int number) async {
-    state = state.copyWith(isPatchLoading: true);
-    await appRepo.patchCount(number).then((value) {
-      state = state.copyWith(isPatchLoading: false);
-    });
+  Future<void> increaseCount() async {
+    state = const AppState.loading();
+    try {
+      await _appRepo.patchCount(count + 1);
+      getData();
+    } catch (_) {
+      state = const AppState.error('Error!');
+    }
   }
 }

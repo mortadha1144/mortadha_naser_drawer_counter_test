@@ -16,12 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppState {
-  AppModel? get appModel => throw _privateConstructorUsedError;
-  bool get isGetLoading => throw _privateConstructorUsedError;
-  bool get isPatchLoading => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppModel appModel) loaded,
+    required TResult Function(String error) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppModel appModel)? loaded,
+    TResult? Function(String error)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppModel appModel)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppStateInitial value) initial,
+    required TResult Function(_AppStateLoading value) loading,
+    required TResult Function(_AppStateLoaded value) loaded,
+    required TResult Function(_AppStateError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppStateInitial value)? initial,
+    TResult? Function(_AppStateLoading value)? loading,
+    TResult? Function(_AppStateLoaded value)? loaded,
+    TResult? Function(_AppStateError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppStateInitial value)? initial,
+    TResult Function(_AppStateLoading value)? loading,
+    TResult Function(_AppStateLoaded value)? loaded,
+    TResult Function(_AppStateError value)? error,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -29,10 +72,6 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
-  @useResult
-  $Res call({AppModel? appModel, bool isGetLoading, bool isPatchLoading});
-
-  $AppModelCopyWith<$Res>? get appModel;
 }
 
 /// @nodoc
@@ -44,146 +83,533 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
 
-  @pragma('vm:prefer-inline')
+/// @nodoc
+abstract class _$$_AppStateInitialCopyWith<$Res> {
+  factory _$$_AppStateInitialCopyWith(
+          _$_AppStateInitial value, $Res Function(_$_AppStateInitial) then) =
+      __$$_AppStateInitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AppStateInitialCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_AppStateInitial>
+    implements _$$_AppStateInitialCopyWith<$Res> {
+  __$$_AppStateInitialCopyWithImpl(
+      _$_AppStateInitial _value, $Res Function(_$_AppStateInitial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_AppStateInitial implements _AppStateInitial {
+  const _$_AppStateInitial();
+
   @override
-  $Res call({
-    Object? appModel = freezed,
-    Object? isGetLoading = null,
-    Object? isPatchLoading = null,
+  String toString() {
+    return 'AppState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AppStateInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppModel appModel) loaded,
+    required TResult Function(String error) error,
   }) {
-    return _then(_value.copyWith(
-      appModel: freezed == appModel
-          ? _value.appModel
-          : appModel // ignore: cast_nullable_to_non_nullable
-              as AppModel?,
-      isGetLoading: null == isGetLoading
-          ? _value.isGetLoading
-          : isGetLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPatchLoading: null == isPatchLoading
-          ? _value.isPatchLoading
-          : isPatchLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return initial();
   }
 
   @override
-  @pragma('vm:prefer-inline')
-  $AppModelCopyWith<$Res>? get appModel {
-    if (_value.appModel == null) {
-      return null;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppModel appModel)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppModel appModel)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
     }
+    return orElse();
+  }
 
-    return $AppModelCopyWith<$Res>(_value.appModel!, (value) {
-      return _then(_value.copyWith(appModel: value) as $Val);
-    });
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppStateInitial value) initial,
+    required TResult Function(_AppStateLoading value) loading,
+    required TResult Function(_AppStateLoaded value) loaded,
+    required TResult Function(_AppStateError value) error,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppStateInitial value)? initial,
+    TResult? Function(_AppStateLoading value)? loading,
+    TResult? Function(_AppStateLoaded value)? loaded,
+    TResult? Function(_AppStateError value)? error,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppStateInitial value)? initial,
+    TResult Function(_AppStateLoading value)? loading,
+    TResult Function(_AppStateLoaded value)? loaded,
+    TResult Function(_AppStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
   }
 }
 
-/// @nodoc
-abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$_AppStateCopyWith(
-          _$_AppState value, $Res Function(_$_AppState) then) =
-      __$$_AppStateCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({AppModel? appModel, bool isGetLoading, bool isPatchLoading});
-
-  @override
-  $AppModelCopyWith<$Res>? get appModel;
+abstract class _AppStateInitial implements AppState {
+  const factory _AppStateInitial() = _$_AppStateInitial;
 }
 
 /// @nodoc
-class __$$_AppStateCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$_AppState>
-    implements _$$_AppStateCopyWith<$Res> {
-  __$$_AppStateCopyWithImpl(
-      _$_AppState _value, $Res Function(_$_AppState) _then)
+abstract class _$$_AppStateLoadingCopyWith<$Res> {
+  factory _$$_AppStateLoadingCopyWith(
+          _$_AppStateLoading value, $Res Function(_$_AppStateLoading) then) =
+      __$$_AppStateLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AppStateLoadingCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_AppStateLoading>
+    implements _$$_AppStateLoadingCopyWith<$Res> {
+  __$$_AppStateLoadingCopyWithImpl(
+      _$_AppStateLoading _value, $Res Function(_$_AppStateLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_AppStateLoading implements _AppStateLoading {
+  const _$_AppStateLoading();
+
+  @override
+  String toString() {
+    return 'AppState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AppStateLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppModel appModel) loaded,
+    required TResult Function(String error) error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppModel appModel)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppModel appModel)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppStateInitial value) initial,
+    required TResult Function(_AppStateLoading value) loading,
+    required TResult Function(_AppStateLoaded value) loaded,
+    required TResult Function(_AppStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppStateInitial value)? initial,
+    TResult? Function(_AppStateLoading value)? loading,
+    TResult? Function(_AppStateLoaded value)? loaded,
+    TResult? Function(_AppStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppStateInitial value)? initial,
+    TResult Function(_AppStateLoading value)? loading,
+    TResult Function(_AppStateLoaded value)? loaded,
+    TResult Function(_AppStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppStateLoading implements AppState {
+  const factory _AppStateLoading() = _$_AppStateLoading;
+}
+
+/// @nodoc
+abstract class _$$_AppStateLoadedCopyWith<$Res> {
+  factory _$$_AppStateLoadedCopyWith(
+          _$_AppStateLoaded value, $Res Function(_$_AppStateLoaded) then) =
+      __$$_AppStateLoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AppModel appModel});
+
+  $AppModelCopyWith<$Res> get appModel;
+}
+
+/// @nodoc
+class __$$_AppStateLoadedCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_AppStateLoaded>
+    implements _$$_AppStateLoadedCopyWith<$Res> {
+  __$$_AppStateLoadedCopyWithImpl(
+      _$_AppStateLoaded _value, $Res Function(_$_AppStateLoaded) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? appModel = freezed,
-    Object? isGetLoading = null,
-    Object? isPatchLoading = null,
+    Object? appModel = null,
   }) {
-    return _then(_$_AppState(
-      appModel: freezed == appModel
+    return _then(_$_AppStateLoaded(
+      null == appModel
           ? _value.appModel
           : appModel // ignore: cast_nullable_to_non_nullable
-              as AppModel?,
-      isGetLoading: null == isGetLoading
-          ? _value.isGetLoading
-          : isGetLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isPatchLoading: null == isPatchLoading
-          ? _value.isPatchLoading
-          : isPatchLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AppModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AppModelCopyWith<$Res> get appModel {
+    return $AppModelCopyWith<$Res>(_value.appModel, (value) {
+      return _then(_value.copyWith(appModel: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_AppState implements _AppState {
-  const _$_AppState(
-      {this.appModel, this.isGetLoading = true, this.isPatchLoading = false});
+class _$_AppStateLoaded implements _AppStateLoaded {
+  const _$_AppStateLoaded(this.appModel);
 
   @override
-  final AppModel? appModel;
-  @override
-  @JsonKey()
-  final bool isGetLoading;
-  @override
-  @JsonKey()
-  final bool isPatchLoading;
+  final AppModel appModel;
 
   @override
   String toString() {
-    return 'AppState(appModel: $appModel, isGetLoading: $isGetLoading, isPatchLoading: $isPatchLoading)';
+    return 'AppState.loaded(appModel: $appModel)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppState &&
+            other is _$_AppStateLoaded &&
             (identical(other.appModel, appModel) ||
-                other.appModel == appModel) &&
-            (identical(other.isGetLoading, isGetLoading) ||
-                other.isGetLoading == isGetLoading) &&
-            (identical(other.isPatchLoading, isPatchLoading) ||
-                other.isPatchLoading == isPatchLoading));
+                other.appModel == appModel));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, appModel, isGetLoading, isPatchLoading);
+  int get hashCode => Object.hash(runtimeType, appModel);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
-      __$$_AppStateCopyWithImpl<_$_AppState>(this, _$identity);
+  _$$_AppStateLoadedCopyWith<_$_AppStateLoaded> get copyWith =>
+      __$$_AppStateLoadedCopyWithImpl<_$_AppStateLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppModel appModel) loaded,
+    required TResult Function(String error) error,
+  }) {
+    return loaded(appModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppModel appModel)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    return loaded?.call(appModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppModel appModel)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(appModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppStateInitial value) initial,
+    required TResult Function(_AppStateLoading value) loading,
+    required TResult Function(_AppStateLoaded value) loaded,
+    required TResult Function(_AppStateError value) error,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppStateInitial value)? initial,
+    TResult? Function(_AppStateLoading value)? loading,
+    TResult? Function(_AppStateLoaded value)? loaded,
+    TResult? Function(_AppStateError value)? error,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppStateInitial value)? initial,
+    TResult Function(_AppStateLoading value)? loading,
+    TResult Function(_AppStateLoaded value)? loaded,
+    TResult Function(_AppStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _AppState implements AppState {
-  const factory _AppState(
-      {final AppModel? appModel,
-      final bool isGetLoading,
-      final bool isPatchLoading}) = _$_AppState;
+abstract class _AppStateLoaded implements AppState {
+  const factory _AppStateLoaded(final AppModel appModel) = _$_AppStateLoaded;
+
+  AppModel get appModel;
+  @JsonKey(ignore: true)
+  _$$_AppStateLoadedCopyWith<_$_AppStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AppStateErrorCopyWith<$Res> {
+  factory _$$_AppStateErrorCopyWith(
+          _$_AppStateError value, $Res Function(_$_AppStateError) then) =
+      __$$_AppStateErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$_AppStateErrorCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$_AppStateError>
+    implements _$$_AppStateErrorCopyWith<$Res> {
+  __$$_AppStateErrorCopyWithImpl(
+      _$_AppStateError _value, $Res Function(_$_AppStateError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$_AppStateError(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AppStateError implements _AppStateError {
+  const _$_AppStateError(this.error);
 
   @override
-  AppModel? get appModel;
+  final String error;
+
   @override
-  bool get isGetLoading;
+  String toString() {
+    return 'AppState.error(error: $error)';
+  }
+
   @override
-  bool get isPatchLoading;
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AppStateError &&
+            (identical(other.error, error) || other.error == error));
+  }
+
   @override
+  int get hashCode => Object.hash(runtimeType, error);
+
   @JsonKey(ignore: true)
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AppStateErrorCopyWith<_$_AppStateError> get copyWith =>
+      __$$_AppStateErrorCopyWithImpl<_$_AppStateError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AppModel appModel) loaded,
+    required TResult Function(String error) error,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AppModel appModel)? loaded,
+    TResult? Function(String error)? error,
+  }) {
+    return error?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AppModel appModel)? loaded,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppStateInitial value) initial,
+    required TResult Function(_AppStateLoading value) loading,
+    required TResult Function(_AppStateLoaded value) loaded,
+    required TResult Function(_AppStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_AppStateInitial value)? initial,
+    TResult? Function(_AppStateLoading value)? loading,
+    TResult? Function(_AppStateLoaded value)? loaded,
+    TResult? Function(_AppStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppStateInitial value)? initial,
+    TResult Function(_AppStateLoading value)? loading,
+    TResult Function(_AppStateLoaded value)? loaded,
+    TResult Function(_AppStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppStateError implements AppState {
+  const factory _AppStateError(final String error) = _$_AppStateError;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$_AppStateErrorCopyWith<_$_AppStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

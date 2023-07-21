@@ -13,24 +13,21 @@ class AppRepo {
   Future<AppModel> fetchData() async {
     const endPoint = 'http://api.ibaity.com/v1/config';
     try {
-      var response = await _dio.get(
+      final Response response = await _dio.get(
         endPoint,
       );
-     
-      AppModel appModel = AppModel.fromJson(response.data);
-
-      return appModel;
-    } catch (e) {
-      if (e is DioException) {
-        print(e.message);
+      if (response.statusCode == 200) {
+        return AppModel.fromJson(response.data);
+      } else {
+        throw Exception();
       }
-      print(e.toString());
-      rethrow;
+    } catch (_) {
+      throw Exception();
     }
   }
 
   Future<void> patchCount(int number) async {
-    const endPoint = 'http://api.ibaity.com/v1/config/count';
+    const endPoint = 'https://api.ibaity.com/v1/config/count';
     Map<String, int> data = {
       'count': number,
     };
@@ -42,10 +39,6 @@ class AppRepo {
         data: data,
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
-          followRedirects: false,
-          validateStatus: (status) {
-            return status! < 500;
-          },
         ),
       )
           .then((value) {

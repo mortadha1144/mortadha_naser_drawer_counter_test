@@ -1,31 +1,38 @@
+import 'package:drawer_counter_test/data/models/app_state.dart';
+import 'package:drawer_counter_test/views/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../providers/app_provider.dart';
+import 'custom_button.dart';
 
 class HomeViewBody extends ConsumerWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final count = ref.watch(appDataProvider).appModel!.count;
-    final isPatchLoading = ref.watch(appDataProvider).isPatchLoading;
-    return Center(
-      child: SizedBox(
-        height: 50,
-        width: 200,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF404e77),
-            foregroundColor: Colors.white,
-            // textStyle: const TextStyle(fontSize: 16),
+    final state = ref.watch(appDataProvider);
+    
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        state.maybeWhen(
+          loading: () => const CustomLoadingIndicator(),
+          initial: () => const CustomLoadingIndicator(),
+          orElse: () => CustomButton(
+            onPress: () {
+              ref.read(appDataProvider.notifier).increaseCount();
+            },
           ),
-          onPressed: () async {
-            ref.read(appDataProvider.notifier).increaseCount(count + 1);
-          },
-          child: const Text('Increse Count by 1'),
         ),
-      ),
+        state.maybeWhen(
+          error: (error) => Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Text(error),
+          ),
+          orElse: () => const SizedBox.shrink(),
+        )
+      ],
     );
   }
 }

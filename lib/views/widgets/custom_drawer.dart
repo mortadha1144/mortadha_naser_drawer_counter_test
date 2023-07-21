@@ -1,7 +1,13 @@
+import 'package:drawer_counter_test/data/models/app_model.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_drawer_body.dart';
+import 'custom_drawer_header.dart';
+
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  const CustomDrawer({super.key, required this.appModel});
+
+  final AppModel appModel;
 
   @override
   Widget build(BuildContext context) {
@@ -9,19 +15,8 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
-            decoration: BoxDecoration(
-              color: Color(0xFF404e77),
-            ),
-            child: CircleAvatar(),
-          ),
-          ListTile(
-            title: Text(
-              'count (19)',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-          )
+          const CustomDrawerHeader(),
+          CustomDrawerBody(app: appModel),
         ],
       ),
     );

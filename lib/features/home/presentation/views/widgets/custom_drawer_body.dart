@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../data/models/app_model.dart';
+import '../../../data/models/app_model.dart';
 import 'drawer_list_view_item.dart';
 
 class CustomDrawerBody extends StatelessWidget {
@@ -14,9 +14,6 @@ class CustomDrawerBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // padding: EdgeInsets.zero,
-      // shrinkWrap: true,
-      // physics: const ClampingScrollPhysics(),
       children: [
         DrawerListViewItem(text: 'count (${app.count})'),
         const Divider(),

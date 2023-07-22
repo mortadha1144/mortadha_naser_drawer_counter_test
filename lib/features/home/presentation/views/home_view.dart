@@ -10,7 +10,8 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Drawer Counter Test '),
+        title: const Text('Drawer Counter Test'),
+        centerTitle: true,
       ),
       drawer: const CustomDrawer(),
       body: const HomeViewBody(),

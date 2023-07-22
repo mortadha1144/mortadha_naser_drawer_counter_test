@@ -1,9 +1,8 @@
-import 'package:drawer_counter_test/data/models/app_model.dart';
-import 'package:drawer_counter_test/providers/app_provider.dart';
-import 'package:drawer_counter_test/views/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../../core/utils/widgets/custom_loading_indicator.dart';
+import '../../providers/app_provider.dart';
 import 'custom_drawer_body.dart';
 import 'custom_drawer_header.dart';
 
@@ -21,7 +20,7 @@ class CustomDrawer extends ConsumerWidget {
           const CustomDrawerHeader(),
           state.maybeWhen(
             loaded: (appModel) => CustomDrawerBody(app: appModel),
-            error: (error) => Text(error),
+            error: (error) => Center(child: Text(error)),
             orElse: () => const CustomLoadingIndicator(),
           ),
         ],

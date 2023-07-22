@@ -16,7 +16,11 @@ class ApiService {
     return response.data;
   }
 
-  Future<void> patch({required String endPoint}) async {
-     await _dio.patch('$_baseUrl$endPoint');
+  Future<Map<String, dynamic>> patch(
+      {required String endPoint, required Object data}) async {
+    final response = await _dio.patch('$_baseUrl$endPoint',
+        data: data,
+        options: Options(contentType: Headers.formUrlEncodedContentType));
+    return response.data;
   }
 }

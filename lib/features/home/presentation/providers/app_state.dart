@@ -1,5 +1,6 @@
-import 'package:drawer_counter_test/data/models/app_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../data/models/app_model.dart';
 
 part 'app_state.freezed.dart';
 

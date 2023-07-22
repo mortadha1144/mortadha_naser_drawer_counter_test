@@ -1,3 +1,4 @@
+import 'package:drawer_counter_test/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawerHeader extends StatelessWidget {
@@ -8,7 +9,7 @@ class CustomDrawerHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const DrawerHeader(
-        decoration: BoxDecoration(color: Color(0xFF404e77)),
+        decoration: BoxDecoration(color: kPrimaryColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
